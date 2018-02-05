@@ -1,0 +1,22 @@
+---
+- name: Enable Base Configuration
+  hosts: all
+  roles:
+  - base-config
+
+- name: delploy postgresql
+  hosts: appdbs
+  roles:
+  - postgresql
+
+- name: Deploy haproxy
+  hosts: frontends
+  roles:
+  - haproxy
+
+- name: deploy httpd
+  hosts: apps
+  roles:
+  - httpd
+  - tomcat
+

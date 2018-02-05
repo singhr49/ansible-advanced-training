@@ -49,7 +49,6 @@
       name: haproxy
       state: restarted
 
-
 - name: deploy tomcat
   hosts: apps
   become: true
@@ -80,58 +79,43 @@
       name: tomcat
       state: started
 
-- name: index.html on app 1
-  hosts: app1
+- name: index.html on apps
+  hosts: apps
   become: true
-
   tasks:
-  - name: copy static index.html to tomcat webapps/ansible/index.html
+  - name: copy static index.html to tomcat webapps/ansible/index.html 
     template:
-      src: index.html.app1
-      dest: /usr/share/tomcat/webapps/ansible/index.html
-
-- name: index.html on app 1
-  hosts: app2
-  become: true
-
-  tasks:
-  - name: copy static index.html to tomcat webapps/ansible/index.html
-    template:
-      src: index.html.app2
+      src: index.html.j2
       dest: /usr/share/tomcat/webapps/ansible/index.html
 
 - name: deploy postgres
-  hosts: apps
   become: true
   hosts: appdbs
   tasks:
   - name: install progress
-    command: "yum install -y postgresql-server"
+    yum:
+      name: postgresql-server
+      state: latest
+    notify:
+      - initilize postgres
+      - restart postgres
 
-  #- name: install postgres
-  #  yum:
-  #    name: postgresql-server
-  #    state: latest
-  - name: enable apache at boot
-    service:
-      name: postgresql
-      enabled: yes
-  - name: tell user to finish setting up postgres
-    debug:
-      msg: "Either uncomment the postgres setup or manually login and initialize"
+#  - name: tell user to finish setting up postgres
+#    debug:
+#      msg: "Either uncomment the postgres setup or manually login and initialize"
 
  # only run the next 2 tasks once!
 #  - name: initilize postgres
 #    command: postgresql-setup initdb
 #  - name: initilize postgres some more
 #    command: chkconfig postgresql on
-  - name: start postgres
-    service:
-      name: postgresql.service
-      state: started
+#  - name: start postgres
+#    service:
+#      name: postgresql.service
+#      state: started
+#      enabled: true
 
 - name: deploy apache
-  hosts: apps
   become: true
   hosts: apps
   tasks:
@@ -147,3 +131,13 @@
     service:
       name: httpd
       state: started
+  
+  handlers:
+  - name: initilize postgres
+    command: postgresql-setup initdb
+
+  - name: restart postgres
+    service: 
+      name: postgresql
+      state: restarted
+      enabled: true

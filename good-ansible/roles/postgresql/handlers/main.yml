@@ -1,0 +1,11 @@
+---
+- name: initialize postgres
+  command: postgresql-setup initdb
+
+- name: start postgres
+  service:
+    name: postgresql
+    state: started
+    enabled: true
+
+
