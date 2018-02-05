@@ -15,7 +15,6 @@
 
 - name: configuration
   hosts: all
-  gather_facts: false # remove later! speeds up testing
   become: true
 
   tasks:
@@ -27,7 +26,6 @@
 
 - name: deploy haproxy
   hosts: frontends
-  gather_facts: false # remove later! speeds up testing
   become: true
 
   tasks:
@@ -54,7 +52,6 @@
 
 - name: deploy tomcat
   hosts: apps
-  gather_facts: false
   become: true
 
   tasks:
@@ -85,7 +82,6 @@
 
 - name: index.html on app 1
   hosts: app1
-  gather_facts: false
   become: true
 
   tasks:
@@ -96,7 +92,6 @@
 
 - name: index.html on app 1
   hosts: app2
-  gather_facts: false
   become: true
 
   tasks:
@@ -107,7 +102,6 @@
 
 - name: deploy postgres
   hosts: apps
-  gather_facts: false
   become: true
   hosts: appdbs
   tasks:
@@ -138,7 +132,6 @@
 
 - name: deploy apache
   hosts: apps
-  gather_facts: false
   become: true
   hosts: apps
   tasks:
