@@ -13,6 +13,8 @@
   hosts: frontends
   roles:
   - haproxy
+  tags:
+    - haproxy
 
 - name: deploy httpd
   hosts: apps
