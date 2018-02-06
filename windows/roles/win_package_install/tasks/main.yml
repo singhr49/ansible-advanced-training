@@ -1,0 +1,11 @@
+---
+- name: Install "{{ package_name }}"
+  win_chocolatey:
+    name: "{{ item }}"
+    state: latest
+    params: "{{ parameters }}"
+  with_items:
+    - "{{ package_name }}"
+    - Chocolatey
+  when: ansible_distribution == "Microsoft Windows Server 2012 R2 Standard"
+

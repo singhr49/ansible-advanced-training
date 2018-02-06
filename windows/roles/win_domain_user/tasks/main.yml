@@ -1,0 +1,10 @@
+---
+- name: Ensure user bob is present with address information
+  win_domain_user:
+      name: "{{ item.value.name }}"
+      firstname: "{{ item.value.firstname }}"
+      surname: "{{ item.value.sirname }}"
+      email: "{{ item.value.email }}"
+      password: "{{ item.value.password }}"
+      state: present
+  with_dict: "{{ user_info }}"

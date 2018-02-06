@@ -1,0 +1,42 @@
+---
+- name: Install AD-Domain-Services
+  win_feature:
+    name: AD-Domain-Services
+    state: present
+
+- name: install DNS
+  win_domain:
+     dns_domain_name: "{{ ad_domain_name }}"
+     safe_mode_password: "{{ ansible_password }}"
+
+- name: Install AD Controller
+  win_domain_controller:
+    dns_domain_name: "{{ ad_domain_name }}"
+    domain_admin_user: "{{ ad_admin_user }}"
+    domain_admin_password: "{{ ansible_password }}"
+    state: domain_controller
+    log_path: c:\ansible_win_domain_controller.txt
+    safe_mode_password: "{{ ansible_password }}"
+  register: result
+
+- name: Reboot the host
+  win_reboot:
+  when: result|changed
+  async: 0
+  poll: 0
+  ignore_errors: true
+
+- name: Wait 300 seconds for port 5986
+  wait_for:
+  host: "{{ inventory_hostname }}"
+  port: 5986
+  state: drained
+  when: result|changed
+
+- name: test ad
+  win_shell: 'nltest /dclist:"{{ ad_domain_name }}"'
+  register: output
+
+- name: print ad list
+  debug:
+    var: output.stdout

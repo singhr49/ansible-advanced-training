@@ -1,0 +1,7 @@
+---
+- name: Create user on AD
+  hosts: windows
+  vars_files:
+    - user_var.yml
+  roles:
+    -  win_domain_user

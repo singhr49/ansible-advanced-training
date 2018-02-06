@@ -1,0 +1,27 @@
+---
+user_info:
+ james:
+    name: james
+    firstname:  James
+    sirname: Jockey
+    password: redhat@123
+    email: james@ad1.b5e7.example.opentlc.com
+ bill:
+    name: bill
+    firstname:  Bill
+    sirname: Gates
+    password: redhat@123
+    email: bill@ad1.b5e7.example.opentlc.com
+ mickey:
+    name: mickey
+    firstname: Mickey
+    sirname: Mouse
+    password: redhat@123
+    email: mickey@ad1.b5e7.example.opentlc.com
+ donald:
+    name: donald
+    firstname: Donald
+    sirname: Duck
+    password: redhat@123
+    email: donald@ad1.b5e7.example.opentlc.com
+  

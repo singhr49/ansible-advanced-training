@@ -1,0 +1,11 @@
+---
+- name: enable ingress port for "{{ service_name }}"
+  win_firewall_rule:
+      name: "{{ service_name }}"
+      localport: "{{ local_port }}"
+      action: allow
+      direction: in
+      protocol: "{{ protocol_name }}"
+      state: present
+      enabled: yes
+  when: ansible_distribution == "Microsoft Windows Server 2012 R2 Standard"

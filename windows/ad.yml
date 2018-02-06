@@ -1,0 +1,8 @@
+---
+- name: Install AD
+  hosts: windows
+  roles:
+    - win_ad_install 
+  pre_tasks:
+  - name: include vars
+    include_vars: my_ad_vars.yml
