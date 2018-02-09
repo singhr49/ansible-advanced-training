@@ -1,0 +1,21 @@
+---
+# Create a security group
+- os_security_group:
+    cloud: ospcloud
+    state: present
+    name: sg_{{ item.value.metadata.group }}
+    description: security group for {{ item.value.metadata.group }}
+  with_dict: "{{ instance_info }}"
+
+- name: Create a security group rule
+  os_security_group_rule:
+    cloud: ospcloud
+    security_group: sg_{{ item.0.metadata.group }}
+    protocol: "{{ item.1.protocol }}"
+    port_range_min: "{{ item.1.ports }}"
+    port_range_max: "{{ item.1.ports }}"
+    remote_ip_prefix: 0.0.0.0/0
+  with_subelements: 
+    - "{{ instance_info }}"
+    - ports-open
+

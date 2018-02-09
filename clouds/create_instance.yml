@@ -1,0 +1,60 @@
+---
+- name: Create Instances on Openstack
+  hosts: jumpbox
+  vars_files:
+    - instance_var.yml
+  roles:
+    - osp_network
+    - osp_flavors
+    - osp_keypairs
+    - osp_security_groups 
+    - osp_instance
+    - add_hosts
+
+- name: Enable Base Configuration
+  hosts: all
+  roles:
+  - base-config
+
+- name: delploy postgresql
+  hosts: appsdb
+  roles:
+  - postgresql
+
+- name: Deploy haproxy
+  hosts: frontends
+  roles:
+  - haproxy
+  tags:
+    - haproxy
+
+- name: deploy apps
+  hosts: apps
+  roles:
+##  - httpd
+  - tomcat
+
+- name: Smoke Test
+  hosts: frontends
+  tasks:
+  - name: debug
+    debug:
+      msg: "{{ inventory_hostname }}"
+
+  - name: test if app is reachable
+    uri: 
+#      url: "http://{{ hostvars[inventory_hostname].ansible_ssh_host }}/"
+      url: "http://{{ inventory_hostname }}/"
+      return_content: yes
+#    #delegate_to: localhost 
+    register:  smoke
+    tags:
+      - smoke
+
+  - name: check the smoke return page content
+    assert:
+     that: "'Ansible has done its job - Welcome to Tomcat' in smoke.content" 
+    tags:
+      - smoke
+
+

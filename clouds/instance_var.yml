@@ -1,0 +1,66 @@
+---
+instance_info:
+ app1:
+    name: app1
+    metadata: 
+      group: apps
+      deployment_name: QA
+    flavor: m2.small
+    keypair: ansible_ssh
+    networks: 
+      public: 10.10.10.0/24
+      private:  20.20.20.0/24
+    image: rhel-guest
+    ports-open:
+      - { ports: '8080', protocol: 'tcp' }
+      - { ports: '22', protocol: 'tcp' }
+      - { ports: '-1', protocol: 'icmp' }
+
+ app2:
+    name: app2
+    metadata: 
+      group: apps
+      deployment_name: QA
+    flavor: m2.small
+    keypair: ansible_ssh
+    networks: 
+      public: 10.10.10.0/24
+      private:  20.20.20.0/24
+    image: rhel-guest
+    ports-open:
+      - { ports: '8080', protocol: 'tcp' }
+      - { ports: '22', protocol: 'tcp' }
+      - { ports: '-1', protocol: 'icmp' }
+
+ db:
+    name: db
+    metadata: 
+      group: appsdb
+      deployment_name: QA
+    flavor: m2.small
+    keypair: ansible_ssh
+    networks: 
+      public: 10.10.10.0/24
+      private:  20.20.20.0/24
+    image: rhel-guest
+    ports-open:
+      - { ports: '5432', protocol: 'tcp' }
+      - { ports: '22', protocol: 'tcp' }
+      - { ports: '-1', protocol: 'icmp' }
+
+ frontend:
+    name: frontend
+    metadata: 
+      group: frontends
+      deployment_name: QA
+    flavor: m2.small
+    keypair: ansible_ssh
+    networks: 
+      public: 10.10.10.0/24
+      private:  20.20.20.0/24
+    image: rhel-guest
+    ports-open:
+      - { ports: '80', protocol: 'tcp' }
+      - { ports: '22', protocol: 'tcp' }
+      - { ports: '-1', protocol: 'icmp' }
+

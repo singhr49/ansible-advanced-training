@@ -1,0 +1,13 @@
+---
+- name: Generate ssh key pair
+  user: 
+    name: "{{ ansible_env.USER }}"
+    generate_ssh_key: yes
+    ssh_key_file: "{{ ansible_env.HOME }}/.ssh/openstack_ssh"
+    
+- name: Create keypair
+  os_keypair:
+      cloud: ospcloud
+      state: present
+      name: ansible_ssh
+      public_key_file: "{{ ansible_env.HOME }}/.ssh/openstack_ssh.pub"

@@ -1,0 +1,19 @@
+---
+- name: get facts of instances
+  os_server_facts:
+  register: facts_output
+
+- debug:
+    msg: "{{ item | json_query('public_v4') }}"
+  with_items:
+      - "{{ facts_output | json_query('ansible_facts.openstack_servers') }}"
+#      - "{{ facts_output.ansible_facts.openstack_servers }}"
+#    var: facts_output.ansible_facts.openstack_servers.public_v4
+#- name: Wait 300 seconds for port 8000 of any IP to close active connections, don't start checking for 10 seconds
+#  wait_for:
+#    host: "{{ item.public_v4 }}"
+##    port: 22
+#    delay: 10
+#    state: drained
+#  with_items:
+#    - "{{ facts_output.ansible_facts.openstack_servers }}"

@@ -1,0 +1,16 @@
+---
+# tasks file for haproxy
+  - name: Install "{{ item }}"
+    yum:
+      name: "{{ item }}"
+      state: latest
+    with_items:
+      - httpie
+      - haproxy
+
+  - name: Configure haproxy
+    template:
+      src: haproxy.cfg.j2
+      dest: /etc/haproxy/haproxy.cfg
+    notify:
+      - restart haproxy

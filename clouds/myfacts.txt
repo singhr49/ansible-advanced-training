@@ -1,0 +1,407 @@
+ok: [workstation-7c51.rhpds.opentlc.com] => {
+    "facts_output.ansible_facts": {
+        "openstack_servers": [
+            {
+                "OS-DCF:diskConfig": "MANUAL", 
+                "OS-EXT-AZ:availability_zone": "nova", 
+                "OS-EXT-SRV-ATTR:host": "comp00.example.com", 
+                "OS-EXT-SRV-ATTR:hypervisor_hostname": "comp00.example.com", 
+                "OS-EXT-SRV-ATTR:instance_name": "instance-00000004", 
+                "OS-EXT-STS:power_state": 1, 
+                "OS-EXT-STS:task_state": null, 
+                "OS-EXT-STS:vm_state": "active", 
+                "OS-SRV-USG:launched_at": "2018-02-07T10:44:07.000000", 
+                "OS-SRV-USG:terminated_at": null, 
+                "accessIPv4": "10.10.10.14", 
+                "accessIPv6": "", 
+                "addresses": {
+                    "private_network": [
+                        {
+                            "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:6c:65:b0", 
+                            "OS-EXT-IPS:type": "fixed", 
+                            "addr": "20.20.20.3", 
+                            "version": 4
+                        }, 
+                        {
+                            "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:6c:65:b0", 
+                            "OS-EXT-IPS:type": "floating", 
+                            "addr": "10.10.10.14", 
+                            "version": 4
+                        }
+                    ]
+                }, 
+                "adminPass": null, 
+                "az": "nova", 
+                "cloud": "ospcloud", 
+                "config_drive": "", 
+                "created": "2018-02-07T10:43:51Z", 
+                "disk_config": "MANUAL", 
+                "flavor": {
+                    "id": "046880ff-0ee8-42a6-9804-c626a8ae4fca"
+                }, 
+                "has_config_drive": false, 
+                "hostId": "59b9f8bf3d22d1ecfa16e52e12ed870bad9a96c86298184f00241e5a", 
+                "host_id": "59b9f8bf3d22d1ecfa16e52e12ed870bad9a96c86298184f00241e5a", 
+                "id": "a6d80c21-dc19-4705-a284-123c4b5bbaed", 
+                "image": {
+                    "id": "dbdb7348-3d1f-4061-9bbf-06f1512b88be"
+                }, 
+                "interface_ip": "10.10.10.14", 
+                "key_name": "ansible_ssh", 
+                "launched_at": "2018-02-07T10:44:07.000000", 
+                "location": {
+                    "cloud": "ospcloud", 
+                    "project": {
+                        "domain_id": null, 
+                        "domain_name": null, 
+                        "id": "1e3aa106a2f94e93bb328f6bebe8b965", 
+                        "name": "admin"
+                    }, 
+                    "region_name": "RegionOne", 
+                    "zone": "nova"
+                }, 
+                "metadata": {
+                    "deployment_name": "QA", 
+                    "group": "apps"
+                }, 
+                "name": "app1", 
+                "networks": {}, 
+                "os-extended-volumes:volumes_attached": [], 
+                "power_state": 1, 
+                "private_v4": "20.20.20.3", 
+                "progress": 0, 
+                "project_id": "1e3aa106a2f94e93bb328f6bebe8b965", 
+                "properties": {
+                    "OS-DCF:diskConfig": "MANUAL", 
+                    "OS-EXT-AZ:availability_zone": "nova", 
+                    "OS-EXT-SRV-ATTR:host": "comp00.example.com", 
+                    "OS-EXT-SRV-ATTR:hypervisor_hostname": "comp00.example.com", 
+                    "OS-EXT-SRV-ATTR:instance_name": "instance-00000004", 
+                    "OS-EXT-STS:power_state": 1, 
+                    "OS-EXT-STS:task_state": null, 
+                    "OS-EXT-STS:vm_state": "active", 
+                    "OS-SRV-USG:launched_at": "2018-02-07T10:44:07.000000", 
+                    "OS-SRV-USG:terminated_at": null, 
+                    "os-extended-volumes:volumes_attached": []
+                }, 
+                "public_v4": "10.10.10.14", 
+                "public_v6": "", 
+                "region": "RegionOne", 
+                "security_groups": [
+                    {
+                        "name": "sg_apps"
+                    }
+                ], 
+                "status": "ACTIVE", 
+                "task_state": null, 
+                "tenant_id": "1e3aa106a2f94e93bb328f6bebe8b965", 
+                "terminated_at": null, 
+                "updated": "2018-02-07T10:44:03Z", 
+                "user_id": "97656d07875c40b38805582946989e49", 
+                "vm_state": "active", 
+                "volumes": []
+            }, 
+            {
+                "OS-DCF:diskConfig": "MANUAL", 
+                "OS-EXT-AZ:availability_zone": "nova", 
+                "OS-EXT-SRV-ATTR:host": "comp01.example.com", 
+                "OS-EXT-SRV-ATTR:hypervisor_hostname": "comp01.example.com", 
+                "OS-EXT-SRV-ATTR:instance_name": "instance-00000003", 
+                "OS-EXT-STS:power_state": 1, 
+                "OS-EXT-STS:task_state": null, 
+                "OS-EXT-STS:vm_state": "active", 
+                "OS-SRV-USG:launched_at": "2018-02-07T10:43:43.000000", 
+                "OS-SRV-USG:terminated_at": null, 
+                "accessIPv4": "10.10.10.3", 
+                "accessIPv6": "", 
+                "addresses": {
+                    "private_network": [
+                        {
+                            "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:f7:50:e1", 
+                            "OS-EXT-IPS:type": "fixed", 
+                            "addr": "20.20.20.13", 
+                            "version": 4
+                        }, 
+                        {
+                            "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:f7:50:e1", 
+                            "OS-EXT-IPS:type": "floating", 
+                            "addr": "10.10.10.3", 
+                            "version": 4
+                        }
+                    ]
+                }, 
+                "adminPass": null, 
+                "az": "nova", 
+                "cloud": "ospcloud", 
+                "config_drive": "", 
+                "created": "2018-02-07T10:43:26Z", 
+                "disk_config": "MANUAL", 
+                "flavor": {
+                    "id": "046880ff-0ee8-42a6-9804-c626a8ae4fca"
+                }, 
+                "has_config_drive": false, 
+                "hostId": "b3aa7068069c188c8861a9add78f3de5e78d5181e211b8018415dd80", 
+                "host_id": "b3aa7068069c188c8861a9add78f3de5e78d5181e211b8018415dd80", 
+                "id": "6e1101a1-7417-4d6f-94e7-4d2a0dbc40a8", 
+                "image": {
+                    "id": "dbdb7348-3d1f-4061-9bbf-06f1512b88be"
+                }, 
+                "interface_ip": "10.10.10.3", 
+                "key_name": "ansible_ssh", 
+                "launched_at": "2018-02-07T10:43:43.000000", 
+                "location": {
+                    "cloud": "ospcloud", 
+                    "project": {
+                        "domain_id": null, 
+                        "domain_name": null, 
+                        "id": "1e3aa106a2f94e93bb328f6bebe8b965", 
+                        "name": "admin"
+                    }, 
+                    "region_name": "RegionOne", 
+                    "zone": "nova"
+                }, 
+                "metadata": {
+                    "deployment_name": "QA", 
+                    "group": "apps"
+                }, 
+                "name": "app2", 
+                "networks": {}, 
+                "os-extended-volumes:volumes_attached": [], 
+                "power_state": 1, 
+                "private_v4": "20.20.20.13", 
+                "progress": 0, 
+                "project_id": "1e3aa106a2f94e93bb328f6bebe8b965", 
+                "properties": {
+                    "OS-DCF:diskConfig": "MANUAL", 
+                    "OS-EXT-AZ:availability_zone": "nova", 
+                    "OS-EXT-SRV-ATTR:host": "comp01.example.com", 
+                    "OS-EXT-SRV-ATTR:hypervisor_hostname": "comp01.example.com", 
+                    "OS-EXT-SRV-ATTR:instance_name": "instance-00000003", 
+                    "OS-EXT-STS:power_state": 1, 
+                    "OS-EXT-STS:task_state": null, 
+                    "OS-EXT-STS:vm_state": "active", 
+                    "OS-SRV-USG:launched_at": "2018-02-07T10:43:43.000000", 
+                    "OS-SRV-USG:terminated_at": null, 
+                    "os-extended-volumes:volumes_attached": []
+                }, 
+                "public_v4": "10.10.10.3", 
+                "public_v6": "", 
+                "region": "RegionOne", 
+                "security_groups": [
+                    {
+                        "name": "sg_apps"
+                    }
+                ], 
+                "status": "ACTIVE", 
+                "task_state": null, 
+                "tenant_id": "1e3aa106a2f94e93bb328f6bebe8b965", 
+                "terminated_at": null, 
+                "updated": "2018-02-07T10:43:40Z", 
+                "user_id": "97656d07875c40b38805582946989e49", 
+                "vm_state": "active", 
+                "volumes": []
+            }, 
+            {
+                "OS-DCF:diskConfig": "MANUAL", 
+                "OS-EXT-AZ:availability_zone": "nova", 
+                "OS-EXT-SRV-ATTR:host": "comp00.example.com", 
+                "OS-EXT-SRV-ATTR:hypervisor_hostname": "comp00.example.com", 
+                "OS-EXT-SRV-ATTR:instance_name": "instance-00000002", 
+                "OS-EXT-STS:power_state": 1, 
+                "OS-EXT-STS:task_state": null, 
+                "OS-EXT-STS:vm_state": "active", 
+                "OS-SRV-USG:launched_at": "2018-02-07T10:43:19.000000", 
+                "OS-SRV-USG:terminated_at": null, 
+                "accessIPv4": "10.10.10.6", 
+                "accessIPv6": "", 
+                "addresses": {
+                    "private_network": [
+                        {
+                            "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:d9:89:c1", 
+                            "OS-EXT-IPS:type": "fixed", 
+                            "addr": "20.20.20.6", 
+                            "version": 4
+                        }, 
+                        {
+                            "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:d9:89:c1", 
+                            "OS-EXT-IPS:type": "floating", 
+                            "addr": "10.10.10.6", 
+                            "version": 4
+                        }
+                    ]
+                }, 
+                "adminPass": null, 
+                "az": "nova", 
+                "cloud": "ospcloud", 
+                "config_drive": "", 
+                "created": "2018-02-07T10:42:31Z", 
+                "disk_config": "MANUAL", 
+                "flavor": {
+                    "id": "046880ff-0ee8-42a6-9804-c626a8ae4fca"
+                }, 
+                "has_config_drive": false, 
+                "hostId": "59b9f8bf3d22d1ecfa16e52e12ed870bad9a96c86298184f00241e5a", 
+                "host_id": "59b9f8bf3d22d1ecfa16e52e12ed870bad9a96c86298184f00241e5a", 
+                "id": "347b6ceb-f88d-46cb-8754-69dc57360193", 
+                "image": {
+                    "id": "dbdb7348-3d1f-4061-9bbf-06f1512b88be"
+                }, 
+                "interface_ip": "10.10.10.6", 
+                "key_name": "ansible_ssh", 
+                "launched_at": "2018-02-07T10:43:19.000000", 
+                "location": {
+                    "cloud": "ospcloud", 
+                    "project": {
+                        "domain_id": null, 
+                        "domain_name": null, 
+                        "id": "1e3aa106a2f94e93bb328f6bebe8b965", 
+                        "name": "admin"
+                    }, 
+                    "region_name": "RegionOne", 
+                    "zone": "nova"
+                }, 
+                "metadata": {
+                    "deployment_name": "QA", 
+                    "group": "frontends"
+                }, 
+                "name": "frontend", 
+                "networks": {}, 
+                "os-extended-volumes:volumes_attached": [], 
+                "power_state": 1, 
+                "private_v4": "20.20.20.6", 
+                "progress": 0, 
+                "project_id": "1e3aa106a2f94e93bb328f6bebe8b965", 
+                "properties": {
+                    "OS-DCF:diskConfig": "MANUAL", 
+                    "OS-EXT-AZ:availability_zone": "nova", 
+                    "OS-EXT-SRV-ATTR:host": "comp00.example.com", 
+                    "OS-EXT-SRV-ATTR:hypervisor_hostname": "comp00.example.com", 
+                    "OS-EXT-SRV-ATTR:instance_name": "instance-00000002", 
+                    "OS-EXT-STS:power_state": 1, 
+                    "OS-EXT-STS:task_state": null, 
+                    "OS-EXT-STS:vm_state": "active", 
+                    "OS-SRV-USG:launched_at": "2018-02-07T10:43:19.000000", 
+                    "OS-SRV-USG:terminated_at": null, 
+                    "os-extended-volumes:volumes_attached": []
+                }, 
+                "public_v4": "10.10.10.6", 
+                "public_v6": "", 
+                "region": "RegionOne", 
+                "security_groups": [
+                    {
+                        "name": "sg_frontends"
+                    }
+                ], 
+                "status": "ACTIVE", 
+                "task_state": null, 
+                "tenant_id": "1e3aa106a2f94e93bb328f6bebe8b965", 
+                "terminated_at": null, 
+                "updated": "2018-02-07T10:43:15Z", 
+                "user_id": "97656d07875c40b38805582946989e49", 
+                "vm_state": "active", 
+                "volumes": []
+            }, 
+            {
+                "OS-DCF:diskConfig": "MANUAL", 
+                "OS-EXT-AZ:availability_zone": "nova", 
+                "OS-EXT-SRV-ATTR:host": "comp01.example.com", 
+                "OS-EXT-SRV-ATTR:hypervisor_hostname": "comp01.example.com", 
+                "OS-EXT-SRV-ATTR:instance_name": "instance-00000001", 
+                "OS-EXT-STS:power_state": 1, 
+                "OS-EXT-STS:task_state": null, 
+                "OS-EXT-STS:vm_state": "active", 
+                "OS-SRV-USG:launched_at": "2018-02-07T10:42:23.000000", 
+                "OS-SRV-USG:terminated_at": null, 
+                "accessIPv4": "10.10.10.13", 
+                "accessIPv6": "", 
+                "addresses": {
+                    "private_network": [
+                        {
+                            "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:6a:46:f9", 
+                            "OS-EXT-IPS:type": "fixed", 
+                            "addr": "20.20.20.4", 
+                            "version": 4
+                        }, 
+                        {
+                            "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:6a:46:f9", 
+                            "OS-EXT-IPS:type": "floating", 
+                            "addr": "10.10.10.13", 
+                            "version": 4
+                        }
+                    ]
+                }, 
+                "adminPass": null, 
+                "az": "nova", 
+                "cloud": "ospcloud", 
+                "config_drive": "", 
+                "created": "2018-02-07T10:41:34Z", 
+                "disk_config": "MANUAL", 
+                "flavor": {
+                    "id": "046880ff-0ee8-42a6-9804-c626a8ae4fca"
+                }, 
+                "has_config_drive": false, 
+                "hostId": "b3aa7068069c188c8861a9add78f3de5e78d5181e211b8018415dd80", 
+                "host_id": "b3aa7068069c188c8861a9add78f3de5e78d5181e211b8018415dd80", 
+                "id": "99f4bbc8-73e4-4f18-8c97-1224f456f28c", 
+                "image": {
+                    "id": "dbdb7348-3d1f-4061-9bbf-06f1512b88be"
+                }, 
+                "interface_ip": "10.10.10.13", 
+                "key_name": "ansible_ssh", 
+                "launched_at": "2018-02-07T10:42:23.000000", 
+                "location": {
+                    "cloud": "ospcloud", 
+                    "project": {
+                        "domain_id": null, 
+                        "domain_name": null, 
+                        "id": "1e3aa106a2f94e93bb328f6bebe8b965", 
+                        "name": "admin"
+                    }, 
+                    "region_name": "RegionOne", 
+                    "zone": "nova"
+                }, 
+                "metadata": {
+                    "deployment_name": "QA", 
+                    "group": "appsdb"
+                }, 
+                "name": "db", 
+                "networks": {}, 
+                "os-extended-volumes:volumes_attached": [], 
+                "power_state": 1, 
+                "private_v4": "20.20.20.4", 
+                "progress": 0, 
+                "project_id": "1e3aa106a2f94e93bb328f6bebe8b965", 
+                "properties": {
+                    "OS-DCF:diskConfig": "MANUAL", 
+                    "OS-EXT-AZ:availability_zone": "nova", 
+                    "OS-EXT-SRV-ATTR:host": "comp01.example.com", 
+                    "OS-EXT-SRV-ATTR:hypervisor_hostname": "comp01.example.com", 
+                    "OS-EXT-SRV-ATTR:instance_name": "instance-00000001", 
+                    "OS-EXT-STS:power_state": 1, 
+                    "OS-EXT-STS:task_state": null, 
+                    "OS-EXT-STS:vm_state": "active", 
+                    "OS-SRV-USG:launched_at": "2018-02-07T10:42:23.000000", 
+                    "OS-SRV-USG:terminated_at": null, 
+                    "os-extended-volumes:volumes_attached": []
+                }, 
+                "public_v4": "10.10.10.13", 
+                "public_v6": "", 
+                "region": "RegionOne", 
+                "security_groups": [
+                    {
+                        "name": "sg_appsdb"
+                    }
+                ], 
+                "status": "ACTIVE", 
+                "task_state": null, 
+                "tenant_id": "1e3aa106a2f94e93bb328f6bebe8b965", 
+                "terminated_at": null, 
+                "updated": "2018-02-07T10:42:20Z", 
+                "user_id": "97656d07875c40b38805582946989e49", 
+                "vm_state": "active", 
+                "volumes": []
+            }
+        ]
+    }
+}
+

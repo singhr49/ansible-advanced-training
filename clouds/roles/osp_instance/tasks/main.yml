@@ -1,0 +1,67 @@
+---
+- name: Create a new instance and attaches to a network and passes metadata to the instance
+  os_server:
+       cloud: ospcloud
+       state: present
+       name: "{{ item.value.name }}"
+       image: "{{ item.value.image }}"
+       key_name: "{{ item.value.keypair }}"
+       timeout: 200
+       flavor: "{{ item.value.flavor }}"
+       security_groups: "sg_{{ item.value.metadata.group }}"
+       userdata: |
+        #!/bin/bash
+        curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
+        cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+        curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
+        cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
+       nics:
+         - net-name: private_network
+       meta:
+         deployment_name: "{{ item.value.metadata.deployment_name }}" 
+         group: "{{ item.value.metadata.group }}"
+  with_dict: "{{ instance_info }}"
+
+- name: Assign floating IP
+  os_floating_ip:
+     cloud: ospcloud
+     state: present
+     reuse: yes
+     server: "{{ item.value.name }}"
+     network: public_network
+     wait: true
+     timeout: 180
+  with_dict: "{{ instance_info }}"
+  register: floating_ip
+#
+
+#- debug: 
+#    msg: "{{ item | json_query('floating_ip.floating_ip_address') }}"
+#  with_items:
+#    - "{{ floating_ip.results }}"
+#    - "{{ floating_ip.results | json_query('key') }}"
+
+#- name: get facts of instances
+#  os_server_facts:
+#  register: facts_output
+
+- name: Wait 300 seconds for port 8000 of any IP to close active connections, don't start checking for 10 seconds
+  wait_for:
+    host: "{{ item | json_query('floating_ip.floating_ip_address') }}"
+    port: 22
+    delay: 10
+    timeout: 600
+    state: drained
+  with_items:
+    - "{{ floating_ip.results  }}"
+
+#- name: Wait 300 seconds for port 8000 of any IP to close active connections, don't start checking for 10 seconds
+#  wait_for:
+#    host: "{{ item.public_v4 }}"
+#    port: 22
+#    delay: 10
+#    state: drained
+#  with_items:
+#    - "{{ floating_Ip | json_query('ansible_facts.openstack_servers') }}"
+#    - "{{ facts_output.ansible_facts.openstack_servers }}"
+

@@ -1,0 +1,10 @@
+---
+- name: "Create 'm2.small' flavor with 2048MB of RAM, 1 virtual CPU, and 10GB of local disk."
+  os_nova_flavor:
+    cloud: ospcloud
+    state: present
+    name: m2.small
+    ram: 2048
+    vcpus: 1
+    disk: 10
+

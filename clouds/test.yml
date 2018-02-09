@@ -1,0 +1,9 @@
+---
+- name: Create Instances on Openstack
+  hosts: jumpbox
+  gather_facts: false
+  vars_files:
+    - instance_var.yml
+  roles:
+    - test
+
